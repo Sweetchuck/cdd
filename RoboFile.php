@@ -1,7 +1,6 @@
 <?php
 
 use League\Container\ContainerInterface;
-use Robo\Contract\TaskInterface;
 use Robo\Tasks;
 use Robo\Collection\CollectionBuilder;
 use Sweetchuck\LintReport\Reporter\BaseReporter;
@@ -259,7 +258,7 @@ class RoboFile extends Tasks
         return $this->taskPhpcsLintFiles($options);
     }
 
-    protected function getTaskPhpmdLint(): TaskInterface
+    protected function getTaskPhpmdLint(): CollectionBuilder
     {
         $ruleSetName = 'custom';
 
