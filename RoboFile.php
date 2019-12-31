@@ -96,7 +96,8 @@ class RoboFile extends Tasks
         return $this
             ->collectionBuilder()
             ->addTask($this->taskComposerValidate())
-            ->addTask($this->getTaskPhpcsLint());
+            ->addTask($this->getTaskPhpcsLint())
+            ->addTask($this->getTaskPhpunitRun());
     }
 
     /**
@@ -309,12 +310,12 @@ class RoboFile extends Tasks
 
     protected function isPhpExtensionAvailable(string $extension): bool
     {
-        $command = sprintf('%s -m', escapeshellcmd($this->getPhpExecutable()));
+        $command = [$this->getPhpExecutable(), '-m'];
 
         $process = new Process($command);
         $exitCode = $process->run();
         if ($exitCode !== 0) {
-            throw new \RuntimeException('@todo');
+            throw new RuntimeException('@todo');
         }
 
         return in_array($extension, explode("\n", $process->getOutput()));
@@ -322,7 +323,7 @@ class RoboFile extends Tasks
 
     protected function isPhpDbgAvailable(): bool
     {
-        $command = sprintf('%s -qrr', escapeshellcmd($this->getPhpdbgExecutable()));
+        $command = [$this->getPhpdbgExecutable(), '-qrr'];
 
         return (new Process($command))->run() === 0;
     }
