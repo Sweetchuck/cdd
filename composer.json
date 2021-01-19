@@ -10,16 +10,17 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.2"
+        "php": ">=7.3"
     },
     "require-dev": {
         "ext-json": "*",
+        "phpmd/phpmd": "^2.9",
         "phpunit/phpunit": "^8.0",
         "squizlabs/php_codesniffer": "^3.3",
-        "sweetchuck/git-hooks": "^0.0",
-        "sweetchuck/robo-git": "^0.2",
-        "sweetchuck/robo-phpcs": "^0.1",
-        "sweetchuck/robo-phpmd": "^0.1"
+        "sweetchuck/git-hooks": "2.x-dev",
+        "sweetchuck/robo-git": "1.x-dev",
+        "sweetchuck/robo-phpcs": "1.x-dev",
+        "sweetchuck/robo-phpmd": "1.x-dev"
     },
     "autoload": {
         "psr-4": {
@@ -31,13 +32,6 @@
             "Sweetchuck\\cdd\\Tests\\": "src-dev/Tests/"
         }
     },
-    "scripts": {
-        "post-install-cmd": [
-            "@deploy-git-hooks"
-        ],
-        "post-update-cmd": [
-            "@deploy-git-hooks"
-        ],
-        "deploy-git-hooks": "\\Sweetchuck\\GitHooks\\Composer\\Scripts::deploy"
-    }
+    "scripts": {},
+    "scripts-descriptions": {}
 }
