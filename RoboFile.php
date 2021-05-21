@@ -1,8 +1,11 @@
 <?php
 
 use League\Container\ContainerInterface;
+use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerAwareTrait;
 use Robo\Tasks;
 use Robo\Collection\CollectionBuilder;
+use Robo\State\Data as RoboStateData;
 use Sweetchuck\LintReport\Reporter\BaseReporter;
 use Sweetchuck\Robo\Git\GitTaskLoader;
 use Sweetchuck\Robo\Phpcs\PhpcsTaskLoader;
@@ -11,9 +14,10 @@ use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Process\Process;
 
-class RoboFile extends Tasks
+class RoboFile extends Tasks implements LoggerAwareInterface
 {
 
+    use LoggerAwareTrait;
     use GitTaskLoader;
     use PhpcsTaskLoader;
     use PhpmdTaskLoader;

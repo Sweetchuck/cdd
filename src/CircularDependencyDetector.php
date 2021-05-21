@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Sweetchuck\cdd;
 
 class CircularDependencyDetector implements CircularDependencyDetectorInterface

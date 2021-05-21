@@ -1,7 +1,6 @@
 <?php
-/**
- * @file${CARET}
- */
+
+declare(strict_types = 1);
 
 namespace Sweetchuck\cdd;
 
