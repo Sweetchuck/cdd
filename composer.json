@@ -2,25 +2,30 @@
     "name": "sweetchuck/cdd",
     "description": "Circular dependency detector",
     "license": "GPL-3.0-or-later",
-    "config": {
-        "bin-dir": "bin",
-        "optimize-autoloader": true,
-        "sort-packages": true
-    },
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "sweetchuck/git-hooks": true,
+            "cweagans/composer-patches": true
+        },
+        "optimize-autoloader": true,
+        "preferred-install": {
+            "danielstjules/stringy": "source",
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
     "require": {
-        "php": ">=7.3"
+        "php": ">=7.4"
     },
     "require-dev": {
         "ext-json": "*",
-        "phpmd/phpmd": "^2.9",
-        "phpunit/phpunit": "^8.0",
+        "phpunit/phpunit": "^9.0",
         "squizlabs/php_codesniffer": "^3.3",
         "sweetchuck/git-hooks": "2.x-dev",
-        "sweetchuck/robo-git": "1.x-dev",
-        "sweetchuck/robo-phpcs": "1.x-dev",
-        "sweetchuck/robo-phpmd": "1.x-dev"
+        "sweetchuck/robo-git": "2.x-dev",
+        "sweetchuck/robo-phpcs": "2.x-dev"
     },
     "autoload": {
         "psr-4": {
@@ -31,6 +36,11 @@
         "psr-4": {
             "Sweetchuck\\cdd\\Tests\\": "src-dev/Tests/"
         }
+    },
+    "extra": {
+        "enable-patching": true,
+        "composer-exit-on-patch-failure": true,
+        "patches": {}
     },
     "scripts": {},
     "scripts-descriptions": {}

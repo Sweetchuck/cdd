@@ -1,6 +1,9 @@
 
 version: 2.1
 
+orbs:
+    codecov: 'codecov/codecov@3.0.0'
+
 .env_common: &env_common
     SHELL: '/bin/bash'
 
@@ -11,23 +14,10 @@ version: 2.1
     COMPOSER_NO_INTERACTION: '1'
     COMPOSER_MEMORY_LIMIT: '-1'
     COMPOSER_DISABLE_XDEBUG_WARN: '1'
-
-orbs:
-    codecov: 'codecov/codecov@1.2.0'
+    COMPOSER_CACHE_DIR: '/home/circleci/.cache/composer'
 
 executors:
-    php800:
-        environment:
-            <<: *env_common
-            <<: *env_xdebug
-            <<: *env_composer
-
-        docker:
-            -
-                name: 'main'
-                image: 'circleci/php:8.0'
-
-    php704:
+    php_min:
         environment:
             <<: *env_common
             <<: *env_xdebug
@@ -38,7 +28,7 @@ executors:
                 name: 'main'
                 image: 'circleci/php:7.4'
 
-    php703:
+    php_plus1:
         environment:
             <<: *env_common
             <<: *env_xdebug
@@ -47,7 +37,19 @@ executors:
         docker:
             -
                 name: 'main'
-                image: 'circleci/php:7.3'
+                image: 'circleci/php:8.0'
+
+    php_plus2:
+        environment:
+            <<: *env_common
+            <<: *env_xdebug
+            <<: *env_composer
+
+        docker:
+            -
+                name: 'main'
+                image: 'cimg/php:8.1'
+
 
 commands:
     composer_install:
@@ -70,7 +72,7 @@ commands:
                     name: 'Composer - cache save'
                     key: 'composer-{{ checksum "./composer.lock" }}-2'
                     paths:
-                        - '~/.composer/cache/'
+                        - '~/.cache/composer'
 
     lint:
         description: 'Run linters'
@@ -78,7 +80,8 @@ commands:
             -
                 run:
                     name: 'Run linters'
-                    command: 'bin/robo lint'
+                    command: |
+                        "$(composer config bin-dir)/robo" lint
 
     test:
         description: 'Run tests'
@@ -86,7 +89,8 @@ commands:
             -
                 run:
                     name: 'Run unit tests'
-                    command: 'bin/robo test'
+                    command: |
+                          "$(composer config bin-dir)/robo" test
             -
                 codecov/upload:
                     flags: 'unit'
@@ -98,34 +102,34 @@ commands:
 
 jobs:
     build:
-        executor: 'php703'
+        executor: 'php_min'
         working_directory: '~/repo'
         steps:
             - 'checkout'
             - 'composer_install'
     lint:
-        executor: 'php703'
+        executor: 'php_min'
         working_directory: '~/repo'
         steps:
             - 'checkout'
             - 'composer_install'
             - 'lint'
-    test_php800:
-        executor: 'php800'
+    test_php_min:
+        executor: 'php_min'
         working_directory: '~/repo'
         steps:
             - 'checkout'
             - 'composer_install'
             - 'test'
-    test_php704:
-        executor: 'php704'
+    test_php_plus1:
+        executor: 'php_plus1'
         working_directory: '~/repo'
         steps:
             - 'checkout'
             - 'composer_install'
             - 'test'
-    test_php703:
-        executor: 'php703'
+    test_php_plus2:
+        executor: 'php_plus2'
         working_directory: '~/repo'
         steps:
             - 'checkout'
@@ -140,16 +144,16 @@ workflows:
             -
                 lint:
                     requires:
-                        - build
+                        - 'build'
             -
-                test_php800:
+                test_php_min:
                     requires:
-                        - build
+                        - 'build'
             -
-                test_php704:
+                test_php_plus1:
                     requires:
-                        - build
+                        - 'build'
             -
-                test_php703:
+                test_php_plus2:
                     requires:
-                        - build
+                        - 'build'

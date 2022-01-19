@@ -1,15 +1,13 @@
 <?php
 
-use League\Container\ContainerInterface;
+use League\Container\Container as LeagueContainer;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 use Robo\Tasks;
 use Robo\Collection\CollectionBuilder;
-use Robo\State\Data as RoboStateData;
 use Sweetchuck\LintReport\Reporter\BaseReporter;
 use Sweetchuck\Robo\Git\GitTaskLoader;
 use Sweetchuck\Robo\Phpcs\PhpcsTaskLoader;
-use Sweetchuck\Robo\PhpMessDetector\PhpmdTaskLoader;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Process\Process;
@@ -20,7 +18,6 @@ class RoboFile extends Tasks implements LoggerAwareInterface
     use LoggerAwareTrait;
     use GitTaskLoader;
     use PhpcsTaskLoader;
-    use PhpmdTaskLoader;
 
     /**
      * @var array
@@ -79,19 +76,27 @@ class RoboFile extends Tasks implements LoggerAwareInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @hook pre-command @initLintReporters
      */
-    public function setContainer(ContainerInterface $container)
+    public function initLintReporters()
     {
-        if (!$container->has('lintCheckstyleReporter')) {
-            BaseReporter::lintReportConfigureContainer($container);
-        }
+        $lintServices = BaseReporter::getServices();
+        $container = $this->getContainer();
+        foreach ($lintServices as $name => $class) {
+            if ($container->has($name)) {
+                continue;
+            }
 
-        return parent::setContainer($container);
+            if ($container instanceof LeagueContainer) {
+                $container->share($name, $class);
+            }
+        }
     }
 
     /**
      * Git "pre-commit" hook callback.
+     *
+     * @initLintReporters
      */
     public function githookPreCommit(): CollectionBuilder
     {
@@ -106,21 +111,28 @@ class RoboFile extends Tasks implements LoggerAwareInterface
 
     /**
      * Run code style checkers.
+     *
+     * @initLintReporters
      */
     public function lint(): CollectionBuilder
     {
         return $this
             ->collectionBuilder()
             ->addTask($this->taskComposerValidate())
-            ->addTask($this->getTaskPhpcsLint())
-            ->addTask($this->getTaskPhpmdLint());
+            ->addTask($this->getTaskPhpcsLint());
     }
 
+    /**
+     * @initLintReporters
+     */
     public function lintPhpcs(): CollectionBuilder
     {
         return $this->getTaskPhpcsLint();
     }
 
+    /**
+     * @initLintReporters
+     */
     public function lintPhpmd(): CollectionBuilder
     {
         return $this->getTaskPhpmdLint();
@@ -156,8 +168,8 @@ class RoboFile extends Tasks implements LoggerAwareInterface
      */
     protected function initEnvironmentTypeAndName()
     {
-        $this->environmentType = getenv($this->getEnvVarName('environment_type'));
-        $this->environmentName = getenv($this->getEnvVarName('environment_name'));
+        $this->environmentType = (string) getenv($this->getEnvVarName('environment_type'));
+        $this->environmentName = (string) getenv($this->getEnvVarName('environment_name'));
 
         if (!$this->environmentType) {
             if (getenv('CI') === 'true') {
