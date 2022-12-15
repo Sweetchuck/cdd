@@ -7,26 +7,17 @@ namespace Sweetchuck\cdd;
 class CircularDependencyDetector implements CircularDependencyDetectorInterface
 {
     /**
-     * @var array
+     * @var array<string, array<string>>
      */
-    protected $items = [];
+    protected array $items = [];
 
-    /**
-     * @var string
-     */
-    protected $itemIdSeparator = '|';
+    protected string $itemIdSeparator = '|';
 
-    /**
-     * {@inheritdoc}
-     */
     public function getItemIdSeparator(): string
     {
         return $this->itemIdSeparator;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setItemIdSeparator(string $value)
     {
         $this->itemIdSeparator = $value;
@@ -79,6 +70,9 @@ class CircularDependencyDetector implements CircularDependencyDetectorInterface
         return $this;
     }
 
+    /**
+     * @return array<string, array<string>>
+     */
     protected function getCircularDependencies(): array
     {
         $itemIdSeparator = $this->getItemIdSeparator();

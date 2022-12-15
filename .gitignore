@@ -1,3 +1,11 @@
 
-/reports/
+/tests/_log/
+/tests/_support/_generated
 /vendor/
+
+/.git-hooks.local
+/robo.yml
+
+/phpcs.xml
+
+/phpstan.neon

@@ -1,8 +1,8 @@
-
 # Circular dependency detector
 
-[![CircleCI](https://circleci.com/gh/Sweetchuck/cdd.svg?style=svg)](https://circleci.com/gh/Sweetchuck/cdd)
-[![codecov](https://codecov.io/gh/Sweetchuck/cdd/branch/1.x/graph/badge.svg)](https://codecov.io/gh/Sweetchuck/cdd)
+[![CircleCI](https://circleci.com/gh/Sweetchuck/cdd/tree/1.x.svg?style=svg)](https://circleci.com/gh/Sweetchuck/cdd/?branch=1.x)
+[![codecov](https://codecov.io/gh/Sweetchuck/cdd/branch/1.x/graph/badge.svg?token=HSF16OGPyr)](https://app.codecov.io/gh/Sweetchuck/cdd/branch/1.x)
+
 
 ## Install
 
@@ -13,6 +13,8 @@
 
 ```php
 <?php
+
+declare(strict_types = 1);
 
 use Sweetchuck\cdd\CircularDependencyDetector;
 

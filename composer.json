@@ -2,30 +2,38 @@
     "name": "sweetchuck/cdd",
     "description": "Circular dependency detector",
     "license": "GPL-3.0-or-later",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "config": {
         "allow-plugins": {
-            "sweetchuck/git-hooks": true,
-            "cweagans/composer-patches": true
+            "sweetchuck/git-hooks": true
         },
         "optimize-autoloader": true,
         "preferred-install": {
-            "danielstjules/stringy": "source",
             "*": "dist"
         },
         "sort-packages": true
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": ">=7.4"
     },
     "require-dev": {
         "ext-json": "*",
+        "codeception/codeception": "^4.2",
+        "codeception/module-asserts": "^2.0",
+        "consolidation/robo": "^3.0",
+        "nuvoleweb/robo-config": "^2.0",
+        "phpmd/phpmd": "^2.9",
+        "phpstan/phpstan": "^1.9",
         "phpunit/phpunit": "^9.0",
         "squizlabs/php_codesniffer": "^3.3",
         "sweetchuck/git-hooks": "2.x-dev",
         "sweetchuck/robo-git": "2.x-dev",
-        "sweetchuck/robo-phpcs": "2.x-dev"
+        "sweetchuck/robo-phpcs": "2.x-dev",
+        "sweetchuck/robo-phpmd": "2.x-dev",
+        "sweetchuck/robo-phpstan": "1.x-dev",
+        "sweetchuck/utils": "1.x-dev",
+        "symfony/error-handler": "^5.4"
     },
     "autoload": {
         "psr-4": {
@@ -34,13 +42,9 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Sweetchuck\\cdd\\Tests\\": "src-dev/Tests/"
+            "Sweetchuck\\cdd\\Tests\\Unit\\": "tests/unit/",
+            "Sweetchuck\\cdd\\Tests\\": "tests/_support/"
         }
-    },
-    "extra": {
-        "enable-patching": true,
-        "composer-exit-on-patch-failure": true,
-        "patches": {}
     },
     "scripts": {},
     "scripts-descriptions": {}
