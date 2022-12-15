@@ -4,12 +4,15 @@ declare(strict_types = 1);
 
 namespace Sweetchuck\cdd\Tests\Unit;
 
+use Codeception\Test\Unit;
 use Sweetchuck\cdd\CircularDependencyDetector;
-use PHPUnit\Framework\TestCase;
 
-class CircularDependencyDetectorTest extends TestCase
+class CircularDependencyDetectorTest extends Unit
 {
 
+    /**
+     * @return array<string, mixed>
+     */
     public function casesDetect(): array
     {
         return [
@@ -109,9 +112,12 @@ class CircularDependencyDetectorTest extends TestCase
     }
 
     /**
+     * @param array<string, array<string>> $expected
+     * @param array<string, array<string>> $items
+     *
      * @dataProvider casesDetect
      */
-    public function testDetect(array $expected, array $items, ?string $itemIdSeparator = null)
+    public function testDetect(array $expected, array $items, ?string $itemIdSeparator = null): void
     {
         $detector = new CircularDependencyDetector();
         if ($itemIdSeparator !== null) {
