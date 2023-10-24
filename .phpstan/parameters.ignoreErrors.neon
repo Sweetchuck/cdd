@@ -36,6 +36,11 @@ parameters:
 			path: ../RoboFile.php
 
 		-
+			message: "#^Property Sweetchuck\\\\cdd\\\\CircularDependencyDetector\\:\\:\\$items \\(array\\<string, array\\<string\\>\\>\\) does not accept array\\<string, array\\<array\\<array\\<array\\<array\\<array\\<array\\<array\\<string\\>\\|string\\>\\|string\\>\\|string\\>\\|string\\>\\|string\\>\\|string\\>\\|string\\>\\>\\.$#"
+			count: 1
+			path: ../src/CircularDependencyDetector.php
+
+		-
 			message: "#^Property Sweetchuck\\\\cdd\\\\CircularDependencyDetector\\:\\:\\$items \\(array\\<string, array\\<string\\>\\>\\) does not accept array\\<string, array\\<array\\|string\\>\\>\\.$#"
 			count: 1
 			path: ../src/CircularDependencyDetector.php

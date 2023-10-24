@@ -8,10 +8,7 @@ interface CircularDependencyDetectorInterface
 {
     public function getItemIdSeparator(): string;
 
-    /**
-     * @return $this
-     */
-    public function setItemIdSeparator(string $value);
+    public function setItemIdSeparator(string $value): static;
 
     /**
      * @param array<string, array<string>> $items

@@ -5,10 +5,13 @@ declare(strict_types = 1);
 namespace Sweetchuck\cdd\Tests\Unit;
 
 use Codeception\Test\Unit;
+use Sweetchuck\cdd\Tests\UnitTester;
 use Sweetchuck\cdd\CircularDependencyDetector;
 
 class CircularDependencyDetectorTest extends Unit
 {
+
+    protected UnitTester $tester;
 
     /**
      * @return array<string, mixed>
@@ -124,6 +127,6 @@ class CircularDependencyDetectorTest extends Unit
             $detector->setItemIdSeparator($itemIdSeparator);
         }
 
-        $this->assertEquals($expected, $detector->detect($items));
+        $this->tester->assertSame($expected, $detector->detect($items));
     }
 }

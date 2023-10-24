@@ -1,7 +1,7 @@
 # Circular dependency detector
 
-[![CircleCI](https://circleci.com/gh/Sweetchuck/cdd/tree/1.x.svg?style=svg)](https://circleci.com/gh/Sweetchuck/cdd/?branch=1.x)
-[![codecov](https://codecov.io/gh/Sweetchuck/cdd/branch/1.x/graph/badge.svg?token=HSF16OGPyr)](https://app.codecov.io/gh/Sweetchuck/cdd/branch/1.x)
+[![CircleCI](https://circleci.com/gh/Sweetchuck/cdd/tree/2.x.svg?style=svg)](https://circleci.com/gh/Sweetchuck/cdd/?branch=2.x)
+[![codecov](https://codecov.io/gh/Sweetchuck/cdd/branch/2.x/graph/badge.svg?token=HSF16OGPyr)](https://app.codecov.io/gh/Sweetchuck/cdd/branch/2.x)
 
 
 ## Install

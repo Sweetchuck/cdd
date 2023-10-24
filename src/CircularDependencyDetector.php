@@ -18,7 +18,7 @@ class CircularDependencyDetector implements CircularDependencyDetectorInterface
         return $this->itemIdSeparator;
     }
 
-    public function setItemIdSeparator(string $value)
+    public function setItemIdSeparator(string $value): static
     {
         $this->itemIdSeparator = $value;
 
@@ -38,10 +38,7 @@ class CircularDependencyDetector implements CircularDependencyDetectorInterface
             ->getCircularDependencies();
     }
 
-    /**
-     * @return $this
-     */
-    protected function normalizeItems()
+    protected function normalizeItems(): static
     {
         foreach ($this->items as $itemId => $parents) {
             $this->items[$itemId] = array_fill_keys($parents, []);
@@ -50,10 +47,7 @@ class CircularDependencyDetector implements CircularDependencyDetectorInterface
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    protected function expandParents()
+    protected function expandParents(): static
     {
         foreach ($this->items as $childId => $parents) {
             if (!$parents) {

@@ -18,7 +18,6 @@ use Sweetchuck\Robo\Git\GitTaskLoader;
 use Sweetchuck\Robo\Phpcs\PhpcsTaskLoader;
 use Sweetchuck\Robo\PhpMessDetector\PhpmdTaskLoader;
 use Sweetchuck\Robo\Phpstan\PhpstanTaskLoader;
-use Sweetchuck\Utils\Filter\ArrayFilterEnabled;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Finder\Finder;
@@ -167,7 +166,8 @@ class RoboFile extends Tasks implements LoggerAwareInterface, ConfigAwareInterfa
         return $this
             ->collectionBuilder()
             ->addTask($this->taskComposerValidate())
-            ->addTask($this->getTaskPhpcsLint());
+            ->addTask($this->getTaskPhpcsLint())
+            ->addTask($this->getTaskPhpstanAnalyze());
     }
 
     /**
@@ -302,7 +302,7 @@ class RoboFile extends Tasks implements LoggerAwareInterface, ConfigAwareInterfa
         $default = [
             'paths' => [
                 'tests' => 'tests',
-                'output' => 'tests/_log',
+                'output' => 'tests/_output',
             ],
         ];
         $dist = [];
@@ -335,7 +335,7 @@ class RoboFile extends Tasks implements LoggerAwareInterface, ConfigAwareInterfa
 
         $phpExecutables = array_filter(
             (array) $this->getConfig()->get('php.executables'),
-            new ArrayFilterEnabled(),
+            fn(array $php) => !empty($php['enabled']),
         );
 
         $cb = $this->collectionBuilder();
@@ -499,12 +499,14 @@ class RoboFile extends Tasks implements LoggerAwareInterface, ConfigAwareInterfa
             ],
         ];
 
+        $logDir = $this->getLogDir();
+
         if ($this->environmentType === 'ci' && $this->environmentName === 'jenkins') {
             $options['failOn'] = 'never';
             $options['lintReporters']['lintCheckstyleReporter'] = $this
                 ->getContainer()
                 ->get('lintCheckstyleReporter')
-                ->setDestination('tests/_log/machine/checkstyle/phpcs.psr2.xml');
+                ->setDestination("$logDir/machine/checkstyle/phpcs.psr2.xml");
         }
 
         if ($this->gitHook === 'pre-commit') {
@@ -561,9 +563,9 @@ class RoboFile extends Tasks implements LoggerAwareInterface, ConfigAwareInterfa
     {
         $this->initCodeceptionInfo();
 
-        return !empty($this->codeceptionInfo['paths']['log']) ?
-            $this->codeceptionInfo['paths']['log']
-            : 'tests/_log';
+        return !empty($this->codeceptionInfo['paths']['output']) ?
+            $this->codeceptionInfo['paths']['output']
+            : 'tests/_output';
     }
 
     /**
