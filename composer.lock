@@ -9,25 +9,25 @@
     "packages-dev": [
         {
             "name": "behat/gherkin",
-            "version": "v4.10.0",
+            "version": "v4.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Gherkin.git",
-                "reference": "cbb83c4c435dd8d05a161f2a5ae322e61b2f4db6"
+                "reference": "32821a17b12620951e755b5d49328a6421a5b5b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/cbb83c4c435dd8d05a161f2a5ae322e61b2f4db6",
-                "reference": "cbb83c4c435dd8d05a161f2a5ae322e61b2f4db6",
+                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/32821a17b12620951e755b5d49328a6421a5b5b5",
+                "reference": "32821a17b12620951e755b5d49328a6421a5b5b5",
                 "shasum": ""
             },
             "require": {
-                "php": "~7.2|~8.0"
+                "php": "8.1.* || 8.2.* || 8.3.* || 8.4.*"
             },
             "require-dev": {
                 "cucumber/cucumber": "dev-gherkin-24.1.0",
-                "phpunit/phpunit": "~8|~9",
-                "symfony/yaml": "~3|~4|~5|~6|~7"
+                "phpunit/phpunit": "^9.6",
+                "symfony/yaml": "^5.4 || ^6.4 || ^7.0"
             },
             "suggest": {
                 "symfony/yaml": "If you want to parse features, represented in YAML files"
@@ -66,9 +66,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Behat/Gherkin/issues",
-                "source": "https://github.com/Behat/Gherkin/tree/v4.10.0"
+                "source": "https://github.com/Behat/Gherkin/tree/v4.11.0"
             },
-            "time": "2024-10-19T14:46:06+00:00"
+            "time": "2024-12-06T10:07:25+00:00"
         },
         {
             "name": "codeception/codeception",
@@ -566,16 +566,16 @@
         },
         {
             "name": "consolidation/annotated-command",
-            "version": "4.10.0",
+            "version": "4.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/annotated-command.git",
-                "reference": "1e830ba908c9ffb1ba7ca056203531b27188812c"
+                "reference": "362310b13ececa9f6f0a4a880811fa08fecc348b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/1e830ba908c9ffb1ba7ca056203531b27188812c",
-                "reference": "1e830ba908c9ffb1ba7ca056203531b27188812c",
+                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/362310b13ececa9f6f0a4a880811fa08fecc348b",
+                "reference": "362310b13ececa9f6f0a4a880811fa08fecc348b",
                 "shasum": ""
             },
             "require": {
@@ -616,9 +616,9 @@
             "description": "Initialize Symfony Console commands from annotated command class methods.",
             "support": {
                 "issues": "https://github.com/consolidation/annotated-command/issues",
-                "source": "https://github.com/consolidation/annotated-command/tree/4.10.0"
+                "source": "https://github.com/consolidation/annotated-command/tree/4.10.1"
             },
-            "time": "2024-04-05T21:05:39+00:00"
+            "time": "2024-12-13T19:55:40+00:00"
         },
         {
             "name": "consolidation/config",
@@ -1147,11 +1147,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.x-dev",
-                    "dev-4.x": "4.x-dev",
-                    "dev-3.x": "3.x-dev",
+                    "dev-1.x": "1.x-dev",
                     "dev-2.x": "2.x-dev",
-                    "dev-1.x": "1.x-dev"
+                    "dev-3.x": "3.x-dev",
+                    "dev-4.x": "4.x-dev",
+                    "dev-master": "4.x-dev"
                 }
             },
             "autoload": {
@@ -1783,12 +1783,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "4f33a8e8f55e3d08513ab1b8151827c73fb1bfff"
+                "reference": "0464ac1ea933b44a645eab634e6252bee15eb5d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/4f33a8e8f55e3d08513ab1b8151827c73fb1bfff",
-                "reference": "4f33a8e8f55e3d08513ab1b8151827c73fb1bfff",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/0464ac1ea933b44a645eab634e6252bee15eb5d5",
+                "reference": "0464ac1ea933b44a645eab634e6252bee15eb5d5",
                 "shasum": ""
             },
             "require": {
@@ -1833,7 +1833,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-08-26T09:50:44+00:00"
+            "time": "2024-12-05T12:05:23+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -2156,16 +2156,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.6.21",
+            "version": "9.6.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "de6abf3b6f8dd955fac3caad3af7a9504e8c2ffa"
+                "reference": "f80235cb4d3caa59ae09be3adf1ded27521d1a9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/de6abf3b6f8dd955fac3caad3af7a9504e8c2ffa",
-                "reference": "de6abf3b6f8dd955fac3caad3af7a9504e8c2ffa",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f80235cb4d3caa59ae09be3adf1ded27521d1a9c",
+                "reference": "f80235cb4d3caa59ae09be3adf1ded27521d1a9c",
                 "shasum": ""
             },
             "require": {
@@ -2176,7 +2176,7 @@
                 "ext-mbstring": "*",
                 "ext-xml": "*",
                 "ext-xmlwriter": "*",
-                "myclabs/deep-copy": "^1.12.0",
+                "myclabs/deep-copy": "^1.12.1",
                 "phar-io/manifest": "^2.0.4",
                 "phar-io/version": "^3.2.1",
                 "php": ">=7.3",
@@ -2239,7 +2239,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.6.21"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.6.22"
             },
             "funding": [
                 {
@@ -2255,7 +2255,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-09-19T10:50:18+00:00"
+            "time": "2024-12-05T13:48:26+00:00"
         },
         {
             "name": "psr/container",
@@ -2412,16 +2412,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.12.5",
+            "version": "v0.12.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "36a03ff27986682c22985e56aabaf840dd173cb5"
+                "reference": "d73fa3c74918ef4522bb8a3bf9cab39161c4b57c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/36a03ff27986682c22985e56aabaf840dd173cb5",
-                "reference": "36a03ff27986682c22985e56aabaf840dd173cb5",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/d73fa3c74918ef4522bb8a3bf9cab39161c4b57c",
+                "reference": "d73fa3c74918ef4522bb8a3bf9cab39161c4b57c",
                 "shasum": ""
             },
             "require": {
@@ -2485,9 +2485,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.12.5"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.12.7"
             },
-            "time": "2024-11-29T06:14:30+00:00"
+            "time": "2024-12-10T01:58:33+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -3454,16 +3454,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.11.1",
+            "version": "3.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "19473c30efe4f7b3cd42522d0b2e6e7f243c6f87"
+                "reference": "1368f4a58c3c52114b86b1abe8f4098869cb0079"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/19473c30efe4f7b3cd42522d0b2e6e7f243c6f87",
-                "reference": "19473c30efe4f7b3cd42522d0b2e6e7f243c6f87",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/1368f4a58c3c52114b86b1abe8f4098869cb0079",
+                "reference": "1368f4a58c3c52114b86b1abe8f4098869cb0079",
                 "shasum": ""
             },
             "require": {
@@ -3530,7 +3530,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-11-16T12:02:36+00:00"
+            "time": "2024-12-11T16:04:26+00:00"
         },
         {
             "name": "sweetchuck/git-hooks",
@@ -3538,12 +3538,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sweetchuck/git-hooks.git",
-                "reference": "e90e1bc3db2c54ba9d1f903fd22c0f2d5c5d053b"
+                "reference": "fcc12515515439680472cae6539e2238e1fa7285"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sweetchuck/git-hooks/zipball/e90e1bc3db2c54ba9d1f903fd22c0f2d5c5d053b",
-                "reference": "e90e1bc3db2c54ba9d1f903fd22c0f2d5c5d053b",
+                "url": "https://api.github.com/repos/Sweetchuck/git-hooks/zipball/fcc12515515439680472cae6539e2238e1fa7285",
+                "reference": "fcc12515515439680472cae6539e2238e1fa7285",
                 "shasum": ""
             },
             "require": {
@@ -3596,7 +3596,7 @@
                 "issues": "https://github.com/Sweetchuck/git-hooks/issues",
                 "source": "https://github.com/Sweetchuck/git-hooks"
             },
-            "time": "2024-11-29T18:25:27+00:00"
+            "time": "2024-11-29T22:14:07+00:00"
         },
         {
             "name": "sweetchuck/lint-report",
@@ -3668,12 +3668,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sweetchuck/robo-git.git",
-                "reference": "466c644f4ba0940c677b979ef850a26891703040"
+                "reference": "b81e21dc2321c3abaf6f819191e759729dae79cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sweetchuck/robo-git/zipball/466c644f4ba0940c677b979ef850a26891703040",
-                "reference": "466c644f4ba0940c677b979ef850a26891703040",
+                "url": "https://api.github.com/repos/Sweetchuck/robo-git/zipball/b81e21dc2321c3abaf6f819191e759729dae79cf",
+                "reference": "b81e21dc2321c3abaf6f819191e759729dae79cf",
                 "shasum": ""
             },
             "require": {
@@ -3696,7 +3696,6 @@
                 "symfony/finder": "^5.2 || ^6.0 || ^7.0",
                 "symfony/yaml": "^5.2 || ^6.0 || ^7.0"
             },
-            "default-branch": true,
             "type": "robo-tasks",
             "autoload": {
                 "psr-4": {
@@ -3724,7 +3723,7 @@
                 "issues": "https://github.com/Sweetchuck/robo-git/issues",
                 "source": "https://github.com/Sweetchuck/robo-git"
             },
-            "time": "2024-11-06T21:26:20+00:00"
+            "time": "2024-11-29T22:26:26+00:00"
         },
         {
             "name": "sweetchuck/robo-phpcs",
@@ -3732,19 +3731,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sweetchuck/robo-phpcs.git",
-                "reference": "fd02fb7d169689ba5804dfd85b8f6d9a66de1a6c"
+                "reference": "96a82cbc4223bb62f383e8228525df7f53b3a57a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sweetchuck/robo-phpcs/zipball/fd02fb7d169689ba5804dfd85b8f6d9a66de1a6c",
-                "reference": "fd02fb7d169689ba5804dfd85b8f6d9a66de1a6c",
+                "url": "https://api.github.com/repos/Sweetchuck/robo-phpcs/zipball/96a82cbc4223bb62f383e8228525df7f53b3a57a",
+                "reference": "96a82cbc4223bb62f383e8228525df7f53b3a57a",
                 "shasum": ""
             },
             "require": {
                 "consolidation/robo": "^4.0",
                 "ext-dom": "*",
                 "ext-json": "*",
-                "php": ">=8.1",
+                "php": ">=8.2",
                 "sweetchuck/lint-report": "1.x-dev",
                 "symfony/filesystem": "^4.0 || ^5.0 || ^6.0"
             },
@@ -3760,7 +3759,6 @@
                 "symfony/error-handler": "^6.2",
                 "symfony/yaml": "^5.0 || ^6.0"
             },
-            "default-branch": true,
             "type": "robo-tasks",
             "autoload": {
                 "psr-4": {
@@ -3789,7 +3787,7 @@
                 "issues": "https://github.com/Sweetchuck/robo-phpcs/issues",
                 "source": "https://github.com/Sweetchuck/robo-phpcs"
             },
-            "time": "2024-11-07T20:09:15+00:00"
+            "time": "2024-11-29T23:55:46+00:00"
         },
         {
             "name": "sweetchuck/robo-phpmd",
@@ -3797,12 +3795,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sweetchuck/robo-phpmd.git",
-                "reference": "614d870093b0356bac86d99b854baebfec5a4f73"
+                "reference": "9dccf8c826f6c0d8ada0169158b1e73df0a16dfb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sweetchuck/robo-phpmd/zipball/614d870093b0356bac86d99b854baebfec5a4f73",
-                "reference": "614d870093b0356bac86d99b854baebfec5a4f73",
+                "url": "https://api.github.com/repos/Sweetchuck/robo-phpmd/zipball/9dccf8c826f6c0d8ada0169158b1e73df0a16dfb",
+                "reference": "9dccf8c826f6c0d8ada0169158b1e73df0a16dfb",
                 "shasum": ""
             },
             "require": {
@@ -3832,7 +3830,6 @@
             "suggest": {
                 "phpmd/phpmd": "After all the 'phpmd' executable has to be available."
             },
-            "default-branch": true,
             "type": "robo-tasks",
             "autoload": {
                 "psr-4": {
@@ -3860,7 +3857,7 @@
                 "issues": "https://github.com/Sweetchuck/robo-phpmd/issues",
                 "source": "https://github.com/Sweetchuck/robo-phpmd"
             },
-            "time": "2024-11-07T20:16:57+00:00"
+            "time": "2024-11-30T10:15:42+00:00"
         },
         {
             "name": "sweetchuck/robo-phpstan",
@@ -3868,12 +3865,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sweetchuck/robo-phpstan.git",
-                "reference": "5535acc49d4d2bf841cea686fa1f3230fd561417"
+                "reference": "39c0ca079c1515b85684986065f2127a04f8bc1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sweetchuck/robo-phpstan/zipball/5535acc49d4d2bf841cea686fa1f3230fd561417",
-                "reference": "5535acc49d4d2bf841cea686fa1f3230fd561417",
+                "url": "https://api.github.com/repos/Sweetchuck/robo-phpstan/zipball/39c0ca079c1515b85684986065f2127a04f8bc1e",
+                "reference": "39c0ca079c1515b85684986065f2127a04f8bc1e",
                 "shasum": ""
             },
             "require": {
@@ -3899,7 +3896,6 @@
             "suggest": {
                 "phpstan/phpstan": "*"
             },
-            "default-branch": true,
             "type": "robo-tasks",
             "autoload": {
                 "psr-4": {
@@ -3927,7 +3923,7 @@
                 "issues": "https://github.com/Sweetchuck/robo-phpstan/issues",
                 "source": "https://github.com/Sweetchuck/robo-phpstan"
             },
-            "time": "2024-11-09T19:57:55+00:00"
+            "time": "2024-11-29T23:43:45+00:00"
         },
         {
             "name": "sweetchuck/utils",
@@ -4768,8 +4764,8 @@
             "type": "library",
             "extra": {
                 "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
                 }
             },
             "autoload": {
@@ -4844,8 +4840,8 @@
             "type": "library",
             "extra": {
                 "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
                 }
             },
             "autoload": {
@@ -4922,8 +4918,8 @@
             "type": "library",
             "extra": {
                 "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
                 }
             },
             "autoload": {
@@ -5006,8 +5002,8 @@
             "type": "library",
             "extra": {
                 "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
                 }
             },
             "autoload": {
@@ -5080,8 +5076,8 @@
             "type": "library",
             "extra": {
                 "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
                 }
             },
             "autoload": {
