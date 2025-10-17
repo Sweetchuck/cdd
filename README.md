@@ -4,9 +4,28 @@
 [![codecov](https://codecov.io/gh/Sweetchuck/cdd/branch/2.x/graph/badge.svg?token=HSF16OGPyr)](https://app.codecov.io/gh/Sweetchuck/cdd/branch/2.x)
 
 
-## Install
+A lightweight PHP library for detecting circular dependencies in complex systems.
+This library provides a simple and efficient API to identify loops and cycles within dependency chains,
+making it an essential tool for maintaining clean architecture and preventing infinite loops in your applications.
 
-    composer require sweetchuck/cdd
+
+## When to Use
+
+This library is ideal for projects that need to:
+
+- **Validate dependency graphs** - Ensure there are no circular references in your dependency structures
+- **Build system management** - Detect cycles in build task dependencies to prevent infinite loops
+- **Module/package validation** - Verify that plugin systems or modular architectures don't have circular imports
+- **Code analysis tools** - Power dependency analysis features in linters and static analysis tools
+- **Architecture enforcement** - Maintain strict layered architecture by preventing unwanted circular dependencies
+- **Plugin systems** - Validate plugin dependencies before loading them
+
+
+## Features
+
+- Zero runtime dependencies - lightweight and dependency-free
+- Detects complex cycles - identifies loops of any depth
+- Returns cycle paths - shows exactly which items form the cycle
 
 
 ## Usage
